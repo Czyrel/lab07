@@ -1,27 +1,29 @@
 <!DOCTYPE html>
+</HTML>
   <head> 
     <title>Assignment 2</title> 
 	<script type="text/javascript" src="xhr.js"></script>
     <script type="text/javascript" src="ajax.js"> </script>
+	<script type="text/javascript" src="datetest.js"> </script>
   </head> 
-  <body>
-  <H1>Booking</H1>
+  <body onload="currentDate()">
+  <H1>Request Booking</H1>  
 	<form>
-	    <label>Customer Name:  <input type="text" name="cname"> </label>
- 	    <label><br>Phone Number: <input type="text" name="phone"> <br><br> 
-		<label>Unit Number:  <input type="text" name="unumber"> </label>
- 	    <label><br>Street Number: <input type="text" name="snumber"> <br><br> 
-		<label>Street Name:  <input type="text" name="stname"> </label>
- 	    <label><br>Suburb: <input type="text" name="sbname"> <br><br> 
-		<label><br>Destination Suburb: <input type="text" name="dsbname"> <br><br>
-		<label><br>Pick-Up Date: <input type="date" name="date" value="<?php echo date('d/m/y');?> date("d/m/y")> <br><br>
-		<label><br>Pick-up Time: <input type="time" name="time" value="<?php echo time('HH:MM');?>"> <br><br> </label>
+
+	    <label>Customer Name:  <input type="text" name="cname" required> </label><br>
+ 	    <label for= "phone"><br>Phone Number: <input type="text" id="input" name="phone" required> <br><br><br>
+		<label>Unit Number:  <input type="text" name="unumber"> </label><br>
+ 	    <label><br>Street Number: <input type="text" name="snumber" required> </label><br>
+		<label><br>Street Name:  <input type="text" name="stname" required> </label><br>
+ 	    <label><br>Suburb: <input type="text" name="sbname"> <br><br><br> 
+		<label>Destination Suburb: <input type="text" name="dsbname"> </label><br>
+		<label><br>Pick-Up Date: <input type="date" name="date" value= "currentDate()" required> </label><br>
+		<label><br>Pick-up Time: <input type="time" name="time" required> <br><br><br> </label>
 		
+	    <input type = "button" name="submit" onClick = "getData('bookingdata.php','targetDiv', cname.value, phone.value, unumber.value, snumber.value, stname.value, sbname.value, dsbname.value, date.value, time.value)" value = "Request Booking">
 		
-	    <input name="submit" type = "button" onClick = "getData('bookingdata.php','targetDiv', cname.value, phone.value, unumber.value, snumber.value, stname.value, sbname.value, dsbname.value, date.value, time.value)" value = "Fetch from server">
 	</form>
 	<div id="targetDiv"> 
-	    <p>The fetched data will go here.</p>  
 	</div> 
  </body> 
 </HTML>
